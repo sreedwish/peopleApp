@@ -30,7 +30,6 @@ dependencies:
   retrofit: ^2.0.1
   logger: any
   cached_network_image: ^3.2.0
-  hive: ^2.1.0
 
 dev_dependencies:
   flutter_test:
