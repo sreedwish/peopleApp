@@ -23,6 +23,29 @@ class UsersList extends StatelessWidget {
             }
 
             if (state is UsersGet) {
+              if (state.list!.isEmpty) {
+                //Retry button
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Can not retrieve Users!'),
+                      Container(
+                        margin: EdgeInsets.only(top: 3),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            context.read<UserBloc>().add(GetUsers());
+                          },
+                          child: Text('Retry'.toUpperCase()),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
+
               return ListView.builder(
                 itemCount: state.list!.length,
                 itemBuilder: (con, i) {

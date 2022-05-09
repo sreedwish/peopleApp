@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:people_app/blocs/users/user_bloc.dart';
 import 'package:people_app/constants.dart';
 import 'package:people_app/uiUtilities/styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -11,14 +13,13 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      gotoNext();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      gotoNext();
-    });
-
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Container(
@@ -49,7 +50,7 @@ class _SplashState extends State<Splash> {
 
   void gotoNext() {
     Future.delayed(Duration(seconds: 2)).whenComplete(() {
-      Navigator.of(context).pushNamed(routeUsers);
+      Navigator.of(context).popAndPushNamed(routeUsers);
     });
   }
 }
