@@ -1,6 +1,6 @@
 # people_app
 
-A new Flutter application.
+A flutter application to demonstrate BLOC.
 
 ## Getting Started
 
