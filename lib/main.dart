@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:people_app/blocs/posts/post_bloc.dart';
+import 'package:people_app/views/splash.dart';
 import 'blocs/albums/albums_bloc.dart';
 import 'blocs/comments/comments_bloc_cubit.dart';
 import 'blocs/photos/photo_bloc_cubit.dart';
@@ -40,9 +41,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'People',
-        initialRoute: routeHome,
+        initialRoute: routeSplash,
         routes: {
-          routeHome: (_) => UsersList(),
+          routeSplash: (_) => Splash(),
+          routeUsers: (_) => UsersList(),
           routePosts: (_) => PostLists(),
           routeAlbums: (_) => Albums(),
           routePhotos: (_) => Photos(),
