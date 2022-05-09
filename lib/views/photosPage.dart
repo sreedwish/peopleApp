@@ -77,7 +77,10 @@ class WidgetPhoto extends StatelessWidget {
               ),
             ),
             placeholder: (context, url) => Container(
-                width: 20, height: 20, child: CircularProgressIndicator()),
+                width: 20,
+                height: 20,
+                padding: EdgeInsets.all(40),
+                child: SizedBox(child: CircularProgressIndicator())),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
